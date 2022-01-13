@@ -1,4 +1,57 @@
-'use strict';var vue=require('vue');function _slicedToArray(arr, i) {
+'use strict';var vue=require('vue');function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
@@ -55,7 +108,23 @@ function _arrayLikeToArray(arr, len) {
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}var script = vue.defineComponent({
+}var script$1 = vue.defineComponent({
+  name: "StarIcon"
+});var _hoisted_1$1 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 512.002 512.002"
+};
+
+var _hoisted_2$1 = /*#__PURE__*/vue.createVNode("path", {
+  d: "M511.267 197.258a14.995 14.995 0 00-12.107-10.209l-158.723-23.065-70.985-143.827a14.998 14.998 0 00-26.901 0l-70.988 143.827-158.72 23.065a14.998 14.998 0 00-8.312 25.585l114.848 111.954-27.108 158.083a14.999 14.999 0 0021.763 15.812l141.967-74.638 141.961 74.637a15 15 0 0021.766-15.813l-27.117-158.081 114.861-111.955a14.994 14.994 0 003.795-15.375z"
+}, null, -1);
+
+function render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return vue.openBlock(), vue.createBlock("svg", _hoisted_1$1, [_hoisted_2$1]);
+}script$1.render = render$1;var script = vue.defineComponent({
+  components: {
+    StarIcon: script$1
+  },
   name: "Vue3StarRatings",
   props: {
     starColor: {
@@ -68,19 +137,19 @@ function _nonIterableRest() {
     },
     starSize: {
       type: String,
-      default: '32'
+      default: "32"
     },
     controlBg: {
       type: String,
-      default: '#2e5090'
+      default: "#2e5090"
     },
     controlColor: {
       type: String,
-      default: '#fff'
+      default: "#fff"
     },
     controlSize: {
       type: String,
-      default: '24'
+      default: "24"
     },
     numberOfStars: {
       type: Number,
@@ -109,7 +178,7 @@ function _nonIterableRest() {
   },
   watch: {
     roundedRating: function roundedRating() {
-      this.$emit('update:modelValue', this.roundedRating);
+      this.$emit("update:modelValue", this.roundedRating);
     }
   },
   computed: {
@@ -146,6 +215,16 @@ function _nonIterableRest() {
     rounded: function rounded(value, decimalPlaces) {
       var power = Math.pow(10, decimalPlaces);
       return Math.round(value * power) / power;
+    },
+    numberMinusFifteenPercent: function numberMinusFifteenPercent(value) {
+      var num = +value;
+      return this.rounded(num - num * 0.15, 0);
+    },
+    generateSameWidthAndHeight: function generateSameWidthAndHeight(size) {
+      return {
+        width: size + "px",
+        height: size + "px"
+      };
     }
   },
   mounted: function mounted() {
@@ -156,9 +235,9 @@ function _nonIterableRest() {
       self.rating = relativeX / this.offsetWidth * self.numberOfStars;
     });
   }
-});var _withId = /*#__PURE__*/vue.withScopeId("data-v-3d93c878");
+});var _withId = /*#__PURE__*/vue.withScopeId("data-v-76dea496");
 
-vue.pushScopeId("data-v-3d93c878");
+vue.pushScopeId("data-v-76dea496");
 
 var _hoisted_1 = {
   class: "vue3-star-ratings__wrapper"
@@ -167,47 +246,36 @@ var _hoisted_2 = {
   class: "vue3-star-ratings"
 };
 
-var _hoisted_3 = /*#__PURE__*/vue.createVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 792.082 792.082"
-}, [/*#__PURE__*/vue.createVNode("path", {
+var _hoisted_3 = /*#__PURE__*/vue.createVNode("path", {
   d: "M317.896 396.024l304.749-276.467c27.36-27.36 27.36-71.677 0-99.037s-71.677-27.36-99.036 0L169.11 342.161c-14.783 14.783-21.302 34.538-20.084 53.897-1.218 19.359 5.301 39.114 20.084 53.897l354.531 321.606c27.36 27.36 71.677 27.36 99.037 0s27.36-71.677 0-99.036L317.896 396.024z"
-})], -1);
+}, null, -1);
 
 var _hoisted_4 = /*#__PURE__*/vue.createVNode("path", {
-  d: "M511.267 197.258a14.995 14.995 0 00-12.107-10.209l-158.723-23.065-70.985-143.827a14.998 14.998 0 00-26.901 0l-70.988 143.827-158.72 23.065a14.998 14.998 0 00-8.312 25.585l114.848 111.954-27.108 158.083a14.999 14.999 0 0021.763 15.812l141.967-74.638 141.961 74.637a15 15 0 0021.766-15.813l-27.117-158.081 114.861-111.955a14.994 14.994 0 003.795-15.375z"
-}, null, -1);
-
-var _hoisted_5 = /*#__PURE__*/vue.createVNode("path", {
-  d: "M511.267 197.258a14.995 14.995 0 00-12.107-10.209l-158.723-23.065-70.985-143.827a14.998 14.998 0 00-26.901 0l-70.988 143.827-158.72 23.065a14.998 14.998 0 00-8.312 25.585l114.848 111.954-27.108 158.083a14.999 14.999 0 0021.763 15.812l141.967-74.638 141.961 74.637a15 15 0 0021.766-15.813l-27.117-158.081 114.861-111.955a14.994 14.994 0 003.795-15.375z"
-}, null, -1);
-
-var _hoisted_6 = /*#__PURE__*/vue.createVNode("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 792.082 792.082"
-}, [/*#__PURE__*/vue.createVNode("path", {
   d: "M622.955 342.127L268.424 20.521c-27.36-27.36-71.677-27.36-99.037 0s-27.36 71.676 0 99.037l304.749 276.468-304.749 276.466c-27.36 27.359-27.36 71.676 0 99.036s71.677 27.36 99.037 0l354.531-321.606c14.783-14.783 21.302-34.538 20.084-53.897 1.186-19.36-5.301-39.114-20.084-53.898z"
-})], -1);
+}, null, -1);
 
 vue.popScopeId();
 
 var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_star_icon = vue.resolveComponent("star-icon");
+
   return vue.openBlock(), vue.createBlock("div", _hoisted_1, [vue.createVNode("div", _hoisted_2, [_ctx.showControl ? (vue.openBlock(), vue.createBlock("button", {
     key: 0,
     onClick: _cache[1] || (_cache[1] = function () {
       return _ctx.decreaseRating && _ctx.decreaseRating.apply(_ctx, arguments);
     }),
-    style: {
-      height: _ctx.controlSize + 'px',
-      width: _ctx.controlSize + 'px',
+    style: _objectSpread2(_objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.controlSize)), {}, {
       backgroundColor: _ctx.controlBg,
       color: _ctx.controlColor
-    }
-  }, [_hoisted_3], 4)) : vue.createCommentVNode("", true), vue.createVNode("div", {
+    })
+  }, [(vue.openBlock(), vue.createBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 792.082 792.082",
+    style: _objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.numberMinusFifteenPercent(_ctx.controlSize)))
+  }, [_hoisted_3], 4))], 4)) : vue.createCommentVNode("", true), vue.createVNode("div", {
     class: "stars",
     ref: "starsContainer",
     style: {
-      height: _ctx.starSize + 'px',
       pointerEvents: _ctx.disableClick ? 'none' : 'auto'
     }
   }, [vue.createVNode("div", {
@@ -216,11 +284,10 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       color: _ctx.inactiveColor
     }
   }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList(_ctx.numberOfStars, function (i) {
-    return vue.openBlock(), vue.createBlock("svg", {
+    return vue.openBlock(), vue.createBlock(_component_star_icon, {
       key: i,
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 512.002 512.002"
-    }, [_hoisted_4]);
+      style: _objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.starSize))
+    }, null, 8, ["style"]);
   }), 128))], 4), vue.createVNode("div", {
     class: "stars-inner",
     style: {
@@ -228,23 +295,24 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       color: _ctx.starColor
     }
   }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList(_ctx.numberOfStars, function (i) {
-    return vue.openBlock(), vue.createBlock("svg", {
+    return vue.openBlock(), vue.createBlock(_component_star_icon, {
       key: i,
-      xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 512.002 512.002"
-    }, [_hoisted_5]);
+      style: _objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.starSize))
+    }, null, 8, ["style"]);
   }), 128))], 4)], 4), _ctx.showControl ? (vue.openBlock(), vue.createBlock("button", {
     key: 1,
     onClick: _cache[2] || (_cache[2] = function () {
       return _ctx.increaseRating && _ctx.increaseRating.apply(_ctx, arguments);
     }),
-    style: {
-      height: _ctx.controlSize + 'px',
-      width: _ctx.controlSize + 'px',
+    style: _objectSpread2(_objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.starSize)), {}, {
       backgroundColor: _ctx.controlBg,
       color: _ctx.controlColor
-    }
-  }, [_hoisted_6], 4)) : vue.createCommentVNode("", true)])]);
+    })
+  }, [(vue.openBlock(), vue.createBlock("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 792.082 792.082",
+    style: _objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.numberMinusFifteenPercent(_ctx.controlSize)))
+  }, [_hoisted_4], 4))], 4)) : vue.createCommentVNode("", true)])]);
 });function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -270,9 +338,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z = "\n.vue3-star-ratings__wrapper[data-v-3d93c878] {\n  display: block;\n  margin: 25px auto;\n  text-align: center;\n  padding: 25px;\n}\n.vue3-star-ratings[data-v-3d93c878] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.vue3-star-ratings button[data-v-3d93c878] {\n  border: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 50%;\n  cursor: pointer;\n}\n.vue3-star-ratings button svg[data-v-3d93c878] {\n  height: calc(100% - 8px);\n  fill: currentColor;\n}\n.stars[data-v-3d93c878] {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  margin: 0 auto;\n}\n.stars-outer[data-v-3d93c878], .stars-inner[data-v-3d93c878] {\n  height: inherit;\n}\n.stars-inner[data-v-3d93c878] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  max-width: 100%;\n  min-width: 0;\n  white-space: nowrap;\n  transition: 320ms cubic-bezier(0.075, 0.82, 0.165, 1);\n  overflow: hidden;\n}\n.stars svg[data-v-3d93c878] {\n  display: inline-block;\n  height: inherit;\n  fill: currentColor;\n  cursor: pointer;\n}\n";
+}var css_248z = "\n.vue3-star-ratings__wrapper[data-v-76dea496] {\n  display: block;\n  margin: 25px auto;\n  text-align: center;\n  padding: 25px;\n}\n.vue3-star-ratings[data-v-76dea496] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.vue3-star-ratings button[data-v-76dea496] {\n  border: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 50%;\n  cursor: pointer;\n}\n.vue3-star-ratings button svg[data-v-76dea496] {\n  fill: currentColor;\n}\n.stars[data-v-76dea496] {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  margin: 0 auto;\n}\n.stars-outer[data-v-76dea496],\n.stars-inner[data-v-76dea496] {\n  height: inherit;\n}\n.stars-inner[data-v-76dea496] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  max-width: 100%;\n  min-width: 0;\n  white-space: nowrap;\n  transition: 320ms cubic-bezier(0.075, 0.82, 0.165, 1);\n  overflow: hidden;\n}\n.stars svg[data-v-76dea496] {\n  display: inline-block;\n  fill: currentColor;\n  cursor: pointer;\n}\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-3d93c878";// Import vue component
+script.__scopeId = "data-v-76dea496";// Import vue component
 
 // Default export is installable instance of component.
 // IIFE injects install function into component, allowing component
