@@ -22,7 +22,7 @@ A simple, customizable component for star ratings
 ---
 
 ```
-npm install vue3-star-ratings --save
+npm install vue3-star-ratings-ksh --save
 ```
 
 You can use register it globally like this:
@@ -30,7 +30,7 @@ You can use register it globally like this:
 ```javascript
 import { createApp } from "vue";
 import App from "./App.vue";
-import vue3StarRatings from "vue3-star-ratings";
+import vue3StarRatings from "vue3-star-ratings-ksh";
 
 const app = createApp(App);
 
@@ -65,7 +65,7 @@ export default defineComponent({
 
 ```html
 <script src="https://unpkg.com/vue@3.0.0"></script>
-<script src="https://unpkg.com/vue3-star-ratings/dist/vue3-star-ratings.min.js"></script>
+<script src="https://unpkg.com/vue3-star-ratings-ksh/dist/vue3-star-ratings.min.js"></script>
 ```
 
 ```javascript

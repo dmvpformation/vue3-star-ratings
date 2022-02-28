@@ -62,7 +62,7 @@ export default defineComponent({
   },
   computed: {
     roundedRating(): number {
-      return this.rounded(this.rating, 1);
+      return this.rounded(this.rating, 0);
     },
     percent(): string {
       return (this.roundedRating / this.numberOfStars) * 100 + "%";
@@ -112,10 +112,10 @@ export default defineComponent({
 
     starsCont.addEventListener("click", function(e) {
       var relativeX = e.pageX - this.offsetLeft;
-	  if (this.offsetParent != null) {
-		relativeX -= this.offsetParent.offsetLeft;
-	  }
-      self.rating = (relativeX / this.offsetWidth) * self.numberOfStars;
+      if (this.offsetParent != null) {
+        relativeX -= this.offsetParent.offsetLeft;
+      }
+      self.rating = Math.round(relativeX / this.offsetWidth * self.numberOfStars);
     });
   },
 });
@@ -164,7 +164,7 @@ export default defineComponent({
         </div>
         <div class="stars-inner" :style="{ width: percent, color: starColor }">
           <star-icon
-            v-for="i in numberOfStars"
+            v-for="i in Math.round(rating)"
             :key="i"
             :style="{
               ...generateSameWidthAndHeight(starSize),

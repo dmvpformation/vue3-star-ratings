@@ -183,7 +183,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   },
   computed: {
     roundedRating: function roundedRating() {
-      return this.rounded(this.rating, 1);
+      return this.rounded(this.rating, 0);
     },
     percent: function percent() {
       return this.roundedRating / this.numberOfStars * 100 + "%";
@@ -232,12 +232,17 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     var self = this;
     starsCont.addEventListener("click", function (e) {
       var relativeX = e.pageX - this.offsetLeft;
-      self.rating = relativeX / this.offsetWidth * self.numberOfStars;
+
+      if (this.offsetParent != null) {
+        relativeX -= this.offsetParent.offsetLeft;
+      }
+
+      self.rating = Math.round(relativeX / this.offsetWidth * self.numberOfStars);
     });
   }
-});var _withId = /*#__PURE__*/vue.withScopeId("data-v-76dea496");
+});var _withId = /*#__PURE__*/vue.withScopeId("data-v-c588298c");
 
-vue.pushScopeId("data-v-76dea496");
+vue.pushScopeId("data-v-c588298c");
 
 var _hoisted_1 = {
   class: "vue3-star-ratings__wrapper"
@@ -294,7 +299,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       width: _ctx.percent,
       color: _ctx.starColor
     }
-  }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList(_ctx.numberOfStars, function (i) {
+  }, [(vue.openBlock(true), vue.createBlock(vue.Fragment, null, vue.renderList(Math.round(_ctx.rating), function (i) {
     return vue.openBlock(), vue.createBlock(_component_star_icon, {
       key: i,
       style: _objectSpread2({}, _ctx.generateSameWidthAndHeight(_ctx.starSize))
@@ -338,9 +343,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   } else {
     style.appendChild(document.createTextNode(css));
   }
-}var css_248z = "\n.vue3-star-ratings__wrapper[data-v-76dea496] {\n  display: block;\n  margin: 25px auto;\n  text-align: center;\n  padding: 25px;\n}\n.vue3-star-ratings[data-v-76dea496] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.vue3-star-ratings button[data-v-76dea496] {\n  border: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 50%;\n  cursor: pointer;\n}\n.vue3-star-ratings button svg[data-v-76dea496] {\n  fill: currentColor;\n}\n.stars[data-v-76dea496] {\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n  margin: 0 auto;\n}\n.stars-outer[data-v-76dea496],\n.stars-inner[data-v-76dea496] {\n  height: inherit;\n}\n.stars-inner[data-v-76dea496] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 0;\n  max-width: 100%;\n  min-width: 0;\n  white-space: nowrap;\n  transition: 320ms cubic-bezier(0.075, 0.82, 0.165, 1);\n  overflow: hidden;\n}\n.stars svg[data-v-76dea496] {\n  display: inline-block;\n  fill: currentColor;\n  cursor: pointer;\n}\n";
+}var css_248z = "\n.vue3-star-ratings__wrapper[data-v-c588298c] {\r\n  display: block;\r\n  margin: 25px auto;\r\n  text-align: center;\r\n  padding: 25px;\n}\n.vue3-star-ratings[data-v-c588298c] {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\n}\n.vue3-star-ratings button[data-v-c588298c] {\r\n  border: 0;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  border-radius: 50%;\r\n  cursor: pointer;\n}\n.vue3-star-ratings button svg[data-v-c588298c] {\r\n  fill: currentColor;\n}\n.stars[data-v-c588298c] {\r\n  display: inline-block;\r\n  position: relative;\r\n  overflow: hidden;\r\n  margin: 0 auto;\n}\n.stars-outer[data-v-c588298c],\r\n.stars-inner[data-v-c588298c] {\r\n  height: inherit;\n}\n.stars-inner[data-v-c588298c] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 0;\r\n  max-width: 100%;\r\n  min-width: 0;\r\n  white-space: nowrap;\r\n  transition: 320ms cubic-bezier(0.075, 0.82, 0.165, 1);\r\n  overflow: hidden;\n}\n.stars svg[data-v-c588298c] {\r\n  display: inline-block;\r\n  fill: currentColor;\r\n  cursor: pointer;\n}\r\n";
 styleInject(css_248z);script.render = render;
-script.__scopeId = "data-v-76dea496";// Import vue component
+script.__scopeId = "data-v-c588298c";// Import vue component
 
 // Default export is installable instance of component.
 // IIFE injects install function into component, allowing component
