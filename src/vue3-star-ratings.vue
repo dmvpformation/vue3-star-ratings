@@ -111,7 +111,10 @@ export default defineComponent({
     const self = this;
 
     starsCont.addEventListener("click", function(e) {
-      const relativeX = e.pageX - this.offsetLeft;
+      var relativeX = e.pageX - this.offsetLeft;
+	  if (this.offsetParent != null) {
+		relativeX -= this.offsetParent.offsetLeft;
+	  }
       self.rating = (relativeX / this.offsetWidth) * self.numberOfStars;
     });
   },
