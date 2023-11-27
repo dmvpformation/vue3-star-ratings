@@ -115,7 +115,7 @@ export default defineComponent({
       if (this.offsetParent != null) {
         relativeX -= this.offsetParent.offsetLeft;
       }
-      self.rating = Math.round(relativeX / this.offsetWidth * self.numberOfStars);
+      self.rating = Math.ceil(relativeX / this.offsetWidth * self.numberOfStars);
     });
   },
 });
