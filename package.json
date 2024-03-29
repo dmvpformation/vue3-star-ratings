@@ -1,6 +1,6 @@
 {
-  "name": "vue3-star-ratings-ksh",
-  "version": "2.0.6",
+  "name": "vue3-star-ratings-dmvp",
+  "version": "2.0.7",
   "license": "MIT",
   "description": "A simple, customizable vue3 component for star ratings",
   "main": "dist/vue3-star-ratings.ssr.js",
@@ -22,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sinsongdev/vue3-star-ratings"
+    "url": "https://github.com/dmvpformation/vue3-star-ratings"
   },
   "bugs": {
-    "email": "sinsongdev@gmail.com"
+    "email": "dev@maformationofficinale.com"
   },
   "sideEffects": false,
   "scripts": {
