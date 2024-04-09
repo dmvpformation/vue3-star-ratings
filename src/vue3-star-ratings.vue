@@ -203,9 +203,7 @@ export default defineComponent({
 <style scoped>
 .vue3-star-ratings__wrapper {
   display: block;
-  margin: 25px auto;
   text-align: center;
-  padding: 25px;
 }
 
 .vue3-star-ratings {
